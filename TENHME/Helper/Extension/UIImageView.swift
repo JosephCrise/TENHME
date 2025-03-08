@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIImageView {
+    
+    func loadImage(URLAddress: String) {
+        guard let url = URL(string: URLAddress) else {
+            return
+        }
+//        self.kf.setImage(with: url)
+    }
+    
+}

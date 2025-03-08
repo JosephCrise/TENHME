@@ -15,6 +15,26 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				"Resource/Fonts/Gilroy/Gilroy-Black.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-BlackItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-Bold.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-BoldItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-ExtraBold.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-ExtraBoldItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-Heavy.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-HeavyItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-Light.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-LightItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-Medium.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-MediumItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-Regular.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-RegularItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-SemiBold.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-SemiBoldItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-Thin.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-ThinItalic.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-UltraLight.ttf",
+				"Resource/Fonts/Gilroy/Gilroy-UltraLightItalic.ttf",
 			);
 			target = B8EA42852D77CD010096249C /* TENHME */;
 		};
@@ -153,6 +173,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -160,9 +181,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phanna.TENHME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -181,6 +206,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -188,9 +214,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.phanna.TENHME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
