@@ -482,13 +482,18 @@ extension UIViewController {
 
        return jsonString
     }
-    
-   
 }
 
 
 // MARK: - Clicked/Tap Animation
 extension UIViewController {
+    
+    func presentScreen(to identifier: String, storyboardName: String, modalPresentationStyle: UIModalPresentationStyle = .fullScreen) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: identifier)
+        destinationVC.modalPresentationStyle = modalPresentationStyle
+        self.present(destinationVC, animated: true, completion: nil)
+    }
     
     func animateButton(button: UIButton, scale: CGFloat = 0.96, duration: TimeInterval = 0.09, delay:TimeInterval = 0.0 , completion: @escaping () -> Void) {
         UIView.animate(withDuration: duration, animations: {
@@ -594,3 +599,4 @@ extension UITableViewCell {
         })
     }
 }
+

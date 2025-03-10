@@ -26,4 +26,11 @@ class OnBoadinVC: UIViewController {
     }
     */
 
+    @IBAction func getStartedAct(_ sender: Any) {
+        // Save that the user has seen the intro
+        UserDefaults.standard.set(true, forKey: "hasSeenIntro")
+        
+        // Navigate to Login Screen
+        self.presentScreen(to: "LoginVC", storyboardName: "LoginSB")
+    }
 }

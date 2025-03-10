@@ -6,6 +6,8 @@
 	<array>
 		<string>Gilroy-Light.ttf</string>
 		<string>Gilroy-SemiBold.ttf</string>
+		<string>Gilroy-Regular.ttf</string>
+		<string>Gilroy-SemiBold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
