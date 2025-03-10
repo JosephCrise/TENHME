@@ -1,13 +1,13 @@
 //
-//  OnBoadingVC.swift
+//  LoginVC.swift
 //  TENHME
 //
-//  Created by Sam Sophanna on 3/8/25.
+//  Created by Sam Sophanna on 3/10/25.
 //
 
 import UIKit
 
-class OnBoadingVC: UIViewController {
+class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
