@@ -46,7 +46,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
+    func navigateToOnboarding() {
+        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController as? UINavigationController else {
+            return
+        }
+        
+        let mainStoryboard = UIStoryboard(name: "OnBoadingSB", bundle: nil)
+        let onboardingViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnBoadingVC") as! OnBoadinVC
+        
+        rootViewController.pushViewController(onboardingViewController, animated: true)
+    }
 
 }
 

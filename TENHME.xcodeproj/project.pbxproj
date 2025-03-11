@@ -19,26 +19,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				"Resource/Fonts/Gilroy/Gilroy-Black.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-BlackItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-Bold.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-BoldItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-ExtraBold.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-ExtraBoldItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-Heavy.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-HeavyItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-Light.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-LightItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-Medium.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-MediumItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-Regular.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-RegularItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-SemiBold.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-SemiBoldItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-Thin.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-ThinItalic.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-UltraLight.ttf",
-				"Resource/Fonts/Gilroy/Gilroy-UltraLightItalic.ttf",
 			);
 			target = B8EA42852D77CD010096249C /* TENHME */;
 		};

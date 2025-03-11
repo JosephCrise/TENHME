@@ -211,8 +211,88 @@ extension UIViewController {
         self.popOrDismissVC()
     }
     
-    
-    
+    func setupMinimalNavigationBar() {
+        // Remove the default back button title
+        navigationItem.backButtonDisplayMode = .minimal
+        
+        // Set the back button image
+        let backImage = UIImage(systemName: "chevron.left")
+        navigationController?.navigationBar.backIndicatorImage = backImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        
+        // Make navigation bar background transparent
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        
+        // Set the tint color for the back button
+        navigationController?.navigationBar.tintColor = .black
+    }
+
+    /// Configure the navigation bar with custom settings.
+        /// - Parameters:
+        ///   - isHidden: Whether the navigation bar should be hidden.
+        ///   - animated: Whether the navigation bar changes should be animated.
+        ///   - title: The title of the navigation bar.
+        ///   - titleColor: The color of the title text.
+        ///   - barTintColor: The background color of the navigation bar.
+        ///   - leftBarButtonImage: The image for the left bar button.
+        ///   - leftSelector: The action for the left bar button.
+        ///   - rightBarButtonImage: The image for the right bar button.
+        ///   - rightBarButtonTitle: The title for the right bar button.
+        ///   - rightBarButtonColor: The color of the right bar button title.
+        ///   - rightSelector: The action for the right bar button.
+        ///   - isEnable: Whether the right bar button is enabled.
+        func setupNavigationBar(
+            isHidden: Bool = false,
+            animated: Bool = true,
+            title: String? = nil,
+            titleColor: UIColor = .black,
+            barTintColor: UIColor = .white,
+            leftBarButtonImage: UIImage? = nil,
+            leftSelector: Selector? = nil,
+            rightBarButtonImage: UIImage? = nil,
+            rightBarButtonTitle: String? = nil,
+            rightBarButtonColor: UIColor = .systemBlue,
+            rightSelector: Selector? = nil,
+            isEnable: Bool = true
+        ) {
+            // Navigation Bar Visibility
+            navigationController?.setNavigationBarHidden(isHidden, animated: animated)
+            
+            // Navigation Bar Background Color
+            navigationController?.navigationBar.barTintColor = barTintColor
+            navigationController?.navigationBar.isTranslucent = true
+            
+            // Title and Title Color
+            navigationItem.title = title
+            navigationController?.navigationBar.titleTextAttributes = [
+                .foregroundColor: titleColor,
+                .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+            ]
+            
+            // Left Bar Button Item
+            if let leftImage = leftBarButtonImage, let action = leftSelector {
+                let leftButton = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: action)
+                dismiss(animated: true, completion: nil)
+                navigationItem.leftBarButtonItem = leftButton
+            }
+            
+            // Right Bar Button Item
+            var rightButton: UIBarButtonItem?
+            
+            if let rightImage = rightBarButtonImage, let action = rightSelector {
+                rightButton = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: action)
+            } else if let rightTitle = rightBarButtonTitle, let action = rightSelector {
+                rightButton = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: action)
+                rightButton?.tintColor = rightBarButtonColor
+            }
+            
+            if let button = rightButton {
+                button.isEnabled = isEnable
+                navigationItem.rightBarButtonItem = button
+            }
+        }
     /* Common default navigation bar style
      * 1: isHidden -> Navigation bar hidden
      * 2: animated -> Navigation bar animted
@@ -233,7 +313,7 @@ extension UIViewController {
                                leftBarButtonTitle leftBarTitle: String? = nil,
                                titleColor: UIColor = .colorValue(),
                                barTintColor: UIColor = .white,
-                               leftBarButtonImage leftImage: UIImage? = UIImage(named: "backIcon01"),
+                               leftBarButtonImage leftImage: UIImage? = UIImage(named: ""),
                                leftSelector: Selector? = #selector(leftBarButtonAction),
                                leftBarButtonColor LeftbuttonColors: [UIColor]? = nil,
                                rightBarButtonImage images: [UIImage?] = [],
@@ -242,42 +322,13 @@ extension UIViewController {
                                selectors: [Selector]? = nil,
                                isEnable: Bool = true,
                                numShares : String? = nil) {
-//        if MyDefaults.get(key: .appLang) as? String == "km" {
-//            if #available(iOS 13.0, *) {
-//                
-//                self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
-//                
-//                let fontKhmer  = Shared.share.getLocalizedFont(isNav: true)
-//                self.navigationController?.navigationBar.standardAppearance.shadowColor = .clear
-//                self.navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont(name: "Hanuman-Bold", size: 20)!]
-//                
-//                // For custom TextAttributes
-//                // When tableview scroll to the top, it change from custom font to default sytem Font.
-//                // Use this line to prevent this problem from getting default system font.
-//                self.navigationController?.navigationBar.standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont(name: "Hanuman-Bold", size: 20)!]
-//                
-//                self.navigationController?.navigationBar.standardAppearance.backgroundColor = barTintColor
-//                
-//                // Set background color of ScrollEdgebackground
-//                self.navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = barTintColor
-//                self.navigationController?.navigationBar.standardAppearance.shadowImage = UIImage()
-//    //            self.navigationController?.navigationBar.setBackgroundImage(UIImage().imageWithColor(color: .white), for: .default)
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        }else {
             if #available(iOS 13.0, *) {
                 
                 self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
                 
-//                let fontKhmer  = Shared.share.getLocalizedFont(isNav: true)
                 self.navigationController?.navigationBar.standardAppearance.shadowColor = .clear
-                self.navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont(name: "Inter-Bold", size: 20)!]
-                
-                // For custom TextAttributes
-                // When tableview scroll to the top, it change from custom font to default sytem Font.
-                // Use this line to prevent this problem from getting default system font.
-                self.navigationController?.navigationBar.standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont(name: "Inter-Bold", size: 20)!]
+                self.navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont(name: "Gilroy-SemiBold", size: 20)!]
+                self.navigationController?.navigationBar.standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont(name: "Gilroy-SemiBold", size: 20)!]
                 
                 self.navigationController?.navigationBar.standardAppearance.backgroundColor = barTintColor
                 
@@ -301,7 +352,7 @@ extension UIViewController {
         self.navigationController?.navigationBar.barTintColor = barTintColor
 
         // Default navigation bar title color is "747474" and Font AppleSDGothicNeo-Medium
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont.init(name: "Inter-Bold", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor, NSAttributedString.Key.font : UIFont.init(name: "Gilroy-SemiBold", size: 20)!]
         
         // Default navigation back button is empty
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
@@ -487,6 +538,12 @@ extension UIViewController {
 
 // MARK: - Clicked/Tap Animation
 extension UIViewController {
+    
+    func push(storyboardName: String, viewControllerID: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: viewControllerID)
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func presentScreen(to identifier: String, storyboardName: String, modalPresentationStyle: UIModalPresentationStyle = .fullScreen) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)

@@ -16,24 +16,13 @@ class OnBoadinVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    @IBAction func getStartedAct(_ sender: Any) {
+    @IBAction func getStartedAct(_ sender: UIButton) {
         // Save that the user has seen the intro
         UserDefaults.standard.set(true, forKey: "hasSeenIntro")
-        
         // Navigate to Login Screen
-        self.presentScreen(to: "LoginVC", storyboardName: "LoginSB")
+        self.animateButton(button: sender, scale: 0.85) {
+            self.push(storyboardName: "LoginSB", viewControllerID: "LoginVC")
+        }
     }
 }
-//
-//
-//

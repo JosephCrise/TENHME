@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardToolbarManager.shared.isEnabled = true
 //        IQKeyboardManager.shared.enableAutoToolbar = true
+        for family in UIFont.familyNames {
+            print("Family: \(family)")
+            for font in UIFont.fontNames(forFamilyName: family) {
+                print("Font: \(font)")
+            }
+        }
         return true
     }
 

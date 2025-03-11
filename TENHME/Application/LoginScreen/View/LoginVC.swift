@@ -15,6 +15,7 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 //        initTableView()
         // Do any additional setup after loading the view.
+        setNavigationBarStyle(isHidden: true, animated: true, title: "")
     }
     
 
@@ -27,53 +28,9 @@ class LoginVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func navigateToInputNumberPhoneAct(_ sender: UIButton) {
+        //navigate to screen input phone number
+        self.push(storyboardName: "PhoneNumberInputSB", viewControllerID: "PhoneNumberInputVC")
+    }
+    
 }
-
-//extension LoginVC : UITableViewDelegate, UITableViewDataSource {
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let rowTypes = LoginRowType.allCases[indexPath.row]
-//        switch rowTypes {
-//        case .TopImageLogin:
-//            return UITableView.automaticDimension
-//        case .TitleLogin:
-//            return UITableView.automaticDimension
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////        let rowTypes = LoginRowType.allCases[section]
-////        switch rowTypes {
-////        case .TopImageLogin:
-////            return 0
-////        case .TitleLogin:
-////            return 1
-////        }
-//        return 2
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let rowTypes = LoginRowType.allCases[indexPath.row]
-//        switch rowTypes {
-//        case .TitleLogin:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleLoginTableViewCell", for: indexPath) as! TitleLoginTableViewCell
-//            return cell
-//        case .TopImageLogin:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "TopImageLoginTableViewCell", for: indexPath) as! TopImageLoginTableViewCell
-//            return cell
-//      
-//        }
-//    }
-//    func initTableView(){
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        self.tableView.register(UINib(nibName: "TitleLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleLoginTableViewCell")
-//        self.tableView.register(UINib(nibName: "TopImageLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "TopImageLoginTableViewCell")
-//      
-//        
-// 
-//        
-//    }
-//    
-//}
